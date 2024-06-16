@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime, timezone, timedelta
 import secrets
+import screen_writer
 
 now = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).isoformat()
 
@@ -42,4 +43,8 @@ def transformDescription(description):
 
 shortest_route = min(routes['routes'], key=lambda x: x['duration'])
 
-print(f'Use {transformDescription(shortest_route['description'])} - {getMinutesFromSecondsSetting(shortest_route['duration'])} mins')
+str = f'Use {transformDescription(shortest_route['description'])} - {getMinutesFromSecondsSetting(shortest_route['duration'])} mins'
+print(str)
+
+writer = screen_writer.ScreenWriter()
+writer.show_route(str)

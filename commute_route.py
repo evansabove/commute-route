@@ -6,12 +6,9 @@ import screen_writer
 import time 
 from dateutil import tz
 
-at_time = None 
 time_zone = tz.gettz('London')
 
-def get_quickest_route():
-  at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).astimezone(time_zone)
-
+def get_quickest_route(at_time):
   request = {
     "origin":{
       "address": secrets.route_from
@@ -51,7 +48,9 @@ def transformDescription(description):
 
 while(True):
   print("Getting quickest route...")
-  shortest_route = get_quickest_route()
+  at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).astimezone(time_zone)
+
+  shortest_route = get_quickest_route(at_time)
 
   route = transformDescription(shortest_route['description'])
   duration_mins = getMinutesFromSecondsSetting(shortest_route['duration'])

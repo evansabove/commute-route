@@ -13,8 +13,8 @@ class ScreenWriter:
 
         font = self.get_font(20)
 
-        draw.text((0, 0), route, self.inky_display.BLACK, font)
-        draw.text((0, 20), duration, self.inky_display.BLACK, font)
+        draw.text((0, 0), f'Use {route}', self.inky_display.BLACK, font)
+        draw.text((0, 20), f'{duration} mins', self.inky_display.BLACK, font)
 
         self.inky_display.set_image(img)
         self.inky_display.show()

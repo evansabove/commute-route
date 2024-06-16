@@ -45,7 +45,7 @@ shortest_route = min(routes['routes'], key=lambda x: x['duration'])
 
 
 route = transformDescription(shortest_route['description'])
-duration = getMinutesFromSecondsSetting(shortest_route['duration'])
+duration_mins = getMinutesFromSecondsSetting(shortest_route['duration'])
 
 writer = screen_writer.ScreenWriter()
-writer.show_route(route, str(duration) + "mins")
+writer.show_route(route, duration_mins)

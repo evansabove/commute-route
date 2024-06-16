@@ -4,8 +4,9 @@ from datetime import datetime, timezone, timedelta
 import secrets
 import screen_writer
 import time 
+from dateutil import tz
 
-at_time = datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)
+at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).replace(tzinfo=tz.tzlocal())
 
 def get_quickest_route():
   request = {

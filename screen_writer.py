@@ -13,7 +13,7 @@ class ScreenWriter:
 
         font = self.get_font(20)
 
-        draw.text((0, 0), f'At {at_time}', self.inky_display.BLACK, font)
+        draw.text((0, 0), f'At {at_time. strftime("%a %d %b at %H:%M")}', self.inky_display.BLACK, font)
         draw.text((0, 30), f'Use {route}', self.inky_display.BLACK, font)
         draw.text((0, 60), f'{duration} mins', self.inky_display.BLACK, font)
 

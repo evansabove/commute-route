@@ -4,7 +4,7 @@ from datetime import datetime, timezone, timedelta
 import secrets
 import screen_writer
 
-at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).isoformat()
+at_time = datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)
 
 request = {
   "origin":{
@@ -15,7 +15,7 @@ request = {
   },
   "travelMode": "DRIVE",
   "routingPreference": "TRAFFIC_AWARE",
-  "departureTime": at_time,
+  "departureTime": at_time.isoformat(),
   "computeAlternativeRoutes": "true",
   "routeModifiers": {
     "avoidTolls": "false",

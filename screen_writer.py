@@ -14,8 +14,8 @@ class ScreenWriter:
         font = self.get_font(50)
         left, top, bottom, right = font.getbbox(text)
 
-        x = left
-        y = top
+        x = 0#left
+        y = 0#top
 
         print(x, y)
 

@@ -36,15 +36,16 @@ def getMinutesFromSecondsSetting(str):
 
 def transformDescription(description):
     match description:
-        case "A61": return "Woodseats / Chesterfield Road"
-        case "Abbeydale Rd/A621": return "Abbeydale Road / London Road"
-        case "Abbey Ln/B6068": return "Abbey Lane / Ecclesall Road"
+        case "A61": return "Woodseats"
+        case "Abbeydale Rd/A621": return "Abbeydale"
+        case "Abbey Ln/B6068": return "Ecclesall"
         case _: return description
 
 shortest_route = min(routes['routes'], key=lambda x: x['duration'])
 
-str = f"Use {transformDescription(shortest_route['description'])} - {getMinutesFromSecondsSetting(shortest_route['duration'])} mins"
-print(str)
+
+route = transformDescription(shortest_route['description'])
+duration = getMinutesFromSecondsSetting(shortest_route['duration'])
 
 writer = screen_writer.ScreenWriter()
-writer.show_route(str)
+writer.show_route(route, duration)

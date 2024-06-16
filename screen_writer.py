@@ -7,19 +7,15 @@ class ScreenWriter:
     def __init__(self):
         self.inky_display = auto()
 
-    def show_route(self, text):
+    def show_route(self, route, duration):
         img = Image.new("P", (self.inky_display.WIDTH, self.inky_display.HEIGHT))
         draw = ImageDraw.Draw(img)
 
         font = self.get_font(20)
-        left, top, bottom, right = font.getbbox(text)
 
-        x = 0#left
-        y = 0#top
+        draw.text((0, 0), route, self.inky_display.BLACK, font)
+        draw.text((0, 20), duration, self.inky_display.BLACK, font)
 
-        print(x, y)
-
-        draw.text((x, y), text, self.inky_display.BLACK, font)
         self.inky_display.set_image(img)
         self.inky_display.show()
     

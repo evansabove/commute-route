@@ -11,11 +11,12 @@ class ScreenWriter:
         img = Image.new("P", (self.inky_display.WIDTH, self.inky_display.HEIGHT))
         draw = ImageDraw.Draw(img)
 
-        font = self.get_font(20)
+        small_font = self.get_font(20)
+        big_font = self.get_font(40)
 
-        draw.text((0, 0), f'At {at_time. strftime("%a %d %b at %H:%M")}', self.inky_display.BLACK, font)
-        draw.text((0, 30), f'Use {route}', self.inky_display.BLACK, font)
-        draw.text((0, 60), f'{duration} mins', self.inky_display.BLACK, font)
+        draw.text((0, 0), f'{at_time. strftime("%a %d %b at %H:%M")}', self.inky_display.BLACK, small_font)
+        draw.text((0, 30), f'Use {route}', self.inky_display.BLACK, big_font)
+        draw.text((0, 60), f'{duration} mins', self.inky_display.BLACK, small_font)
 
         self.inky_display.set_image(img)
         self.inky_display.show()

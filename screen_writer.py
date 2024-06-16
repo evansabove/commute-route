@@ -14,8 +14,8 @@ class ScreenWriter:
         font = self.get_font(50)
         left, top, bottom, right = font.getbbox(text)
 
-        x = (self.inky_display.WIDTH / 2) - ((right-left) / 2)
-        y = (self.inky_display.HEIGHT / 2) - ((top-bottom) / 2)
+        x = left
+        y = top
 
         draw.text((x, y), text, self.inky_display.BLACK, font)
     

@@ -16,7 +16,7 @@ class ScreenWriter:
 
         draw.text((0, 0), f'{at_time. strftime("%a %d %b at %H:%M")}', self.inky_display.BLACK, small_font)
         draw.text((0, 30), f'Use {route}', self.inky_display.BLACK, big_font)
-        draw.text((0, 60), f'{duration} mins', self.inky_display.BLACK, small_font)
+        draw.text((0, 80), f'{duration} mins', self.inky_display.BLACK, small_font)
 
         self.inky_display.set_image(img)
         self.inky_display.show()

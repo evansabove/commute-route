@@ -7,10 +7,11 @@ import time
 from dateutil import tz
 
 at_time = None 
+time_zone = tz.gettz('London')
 
 def get_quickest_route():
-  at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).replace(tzinfo=tz.tzlocal())
-  
+  at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).astimezone(time_zone)
+
   request = {
     "origin":{
       "address": secrets.route_from

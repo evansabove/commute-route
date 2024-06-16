@@ -11,7 +11,7 @@ class ScreenWriter:
         img = Image.new("P", (self.inky_display.WIDTH, self.inky_display.HEIGHT))
         draw = ImageDraw.Draw(img)
 
-        font = self.get_font(50)
+        font = self.get_font(20)
         left, top, bottom, right = font.getbbox(text)
 
         x = 0#left

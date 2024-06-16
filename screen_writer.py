@@ -20,6 +20,8 @@ class ScreenWriter:
         print(x, y)
 
         draw.text((x, y), text, self.inky_display.BLACK, font)
+        self.inky_display.set_image(img)
+        self.inky_display.show()
     
     def get_font(self, size):
         return ImageFont.truetype('/home/andy/commute-route/Roboto-Medium.ttf', size) #change this

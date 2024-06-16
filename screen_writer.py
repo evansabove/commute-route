@@ -17,6 +17,8 @@ class ScreenWriter:
         x = left
         y = top
 
+        print(x, y)
+
         draw.text((x, y), text, self.inky_display.BLACK, font)
     
     def get_font(self, size):

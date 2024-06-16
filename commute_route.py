@@ -48,4 +48,4 @@ route = transformDescription(shortest_route['description'])
 duration = getMinutesFromSecondsSetting(shortest_route['duration'])
 
 writer = screen_writer.ScreenWriter()
-writer.show_route(route, duration)
+writer.show_route(route, str(duration) + "mins")

@@ -6,9 +6,11 @@ import screen_writer
 import time 
 from dateutil import tz
 
-at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).replace(tzinfo=tz.tzlocal())
+at_time = None 
 
 def get_quickest_route():
+  at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).replace(tzinfo=tz.tzlocal())
+  
   request = {
     "origin":{
       "address": secrets.route_from

@@ -37,8 +37,8 @@ def getMinutesFromSecondsSetting(str):
 def transformDescription(description):
     match description:
         case "A61": return "Woodseats"
-        case "Abbeydale Rd/A621": return "Abbeydale"
-        case "Abbey Ln/B6068": return "Ecclesall"
+        case "Abbeydale Rd/A621": return "Abbeydale Rd"
+        case "Abbey Ln/B6068": return "Ecclesall Rd"
         case _: return description
 
 shortest_route = min(routes['routes'], key=lambda x: x['duration'])

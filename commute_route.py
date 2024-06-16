@@ -1,15 +1,16 @@
 import requests
 import json
 from datetime import datetime, timezone, timedelta
+import secrets
 
 now = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).isoformat()
 
 request = {
   "origin":{
-    "address": "34 Cockshutt Road, Sheffield"
+    "address": secrets.route_from
   },
   "destination":{
-    "address": "73 Sidney Street, Sheffield"
+    "address": secrets.route_to
   },
   "travelMode": "DRIVE",
   "routingPreference": "TRAFFIC_AWARE",
@@ -24,7 +25,7 @@ request = {
   "units": "IMPERIAL"
 }
 
-response = requests.post('https://routes.googleapis.com/directions/v2:computeRoutes', json.dumps(request), headers= { 'X-Goog-Api-Key': 'AIzaSyBaBnV3R7UQ_xeZUnWE4nH6Bt0g1l5uCXI', 'X-Goog-FieldMask': 'routes.description,routes.duration', 'Content-Type': 'application/json'})
+response = requests.post('https://routes.googleapis.com/directions/v2:computeRoutes', json.dumps(request), headers= { 'X-Goog-Api-Key': secrets.api_key, 'X-Goog-FieldMask': 'routes.description,routes.duration', 'Content-Type': 'application/json'})
 
 routes = response.json()
 

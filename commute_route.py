@@ -43,7 +43,7 @@ def transformDescription(description):
 
 shortest_route = min(routes['routes'], key=lambda x: x['duration'])
 
-str = f'Use {transformDescription(shortest_route['description'])} - {getMinutesFromSecondsSetting(shortest_route['duration'])} mins'
+str = f"Use {transformDescription(shortest_route['description'])} - {getMinutesFromSecondsSetting(shortest_route['duration'])} mins"
 print(str)
 
 writer = screen_writer.ScreenWriter()

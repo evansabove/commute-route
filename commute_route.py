@@ -55,12 +55,17 @@ while(True):
   print("Getting quickest route...")
   at_time = (datetime.now(timezone.utc) + timedelta(0, 0, 0, 0, 2)).astimezone(time_zone)
 
-  shortest_route = get_quickest_route(at_time)
+  try:
+    shortest_route = get_quickest_route(at_time)
 
-  route = transformDescription(shortest_route['description'])
-  duration_mins = getMinutesFromSecondsSetting(shortest_route['duration'])
+    route = transformDescription(shortest_route['description'])
+    duration_mins = getMinutesFromSecondsSetting(shortest_route['duration'])
 
-  writer = screen_writer.ScreenWriter()
-  writer.show_route(route, duration_mins, at_time)
+    writer = screen_writer.ScreenWriter()
+    writer.show_route(route, duration_mins, at_time)
+
+  except Exception as e:
+    print("Error getting route")
+    print(e)
 
   time.sleep(60)

@@ -33,6 +33,11 @@ def get_quickest_route(at_time):
 
   routes = response.json()
 
+  if 'routes' not in routes:
+    print("Error getting routes")
+    print(routes)
+    return
+
   return min(routes['routes'], key=lambda x: x['duration'])
 
 def getMinutesFromSecondsSetting(str):
